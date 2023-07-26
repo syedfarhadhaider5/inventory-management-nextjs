@@ -1,23 +1,28 @@
 // pages/dashboard.js (or any other protected page)
-import { useSession } from "next-auth/react";
+import { useSession,signOut } from "next-auth/react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 function Dashboard() {
   const { data: session, status } = useSession();
-
+console.log(session)
   if (status === "loading") {
     return <div>Loading...</div>;
   }
+  const router = useRouter();
 
-  if (!session) {
-    // If the user is not authenticated, redirect them to the login page
-    return <div>Please login to access the dashboard.</div>;
-  }
+  const handleSignOut = async () => {
+    // Call the signOut function to log out the user
+    await signOut({callbackUrl: '/'});
+  };
 
   // If the user is authenticated, display the dashboard content
   return (
     <div>
-      <h1>Welcome, {session.user.name}!</h1>
-      <p>Email: {session.user.email}</p>
+      <h1>Home</h1>
+      <h2>{session?.user?.name}</h2>
+      <h2 onClick={handleSignOut}>Logout</h2>
     </div>
   );
 }

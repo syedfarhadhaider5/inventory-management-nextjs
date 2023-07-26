@@ -29,6 +29,9 @@ const options = {
           return Promise.resolve(null);
         }
       },
+      pages: {
+        signIn: '/auth/index',
+    },
     }),
   ],
 };
