@@ -36,7 +36,7 @@ function Login() {
           />
         </div>
         <div>
-          <label>Password:</label>
+          <label color="primary">Password:</label>
           <input
             type="password"
             value={password}

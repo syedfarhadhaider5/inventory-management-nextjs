@@ -2,7 +2,8 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import LoginIcon from '@mui/icons-material/Login';
-import { Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
+import { useTheme } from "@emotion/react";
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -61,6 +62,8 @@ function Login() {
                                 />
                             </div>
                             <button type="submit" className="w-full bg-[#000000] text-white p-2 rounded-lg mt-4">Login</button>
+                            <Button color="primary">Primary Button</Button>
+
                         </form>
                     </div>
                 </Grid>
